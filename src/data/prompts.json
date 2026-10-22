@@ -1,0 +1,323 @@
+{
+ "focos": [
+  {
+   "titulo": "Bloco lexical",
+   "intro": "Bloco lexical é a frase inteira que o nativo fala junta, aprendida como se fosse uma palavra só. \"I've been meaning to\" é um bloco. Você não monta peça por peça: você puxa pronto.",
+   "prompts": [
+    {
+     "num": 1,
+     "titulo": "Os três blocos que eu escolhi",
+     "paraquem": "você já tem expressões anotadas e nunca consegue usar nenhuma numa frase sua.",
+     "estilo": "conversa dirigida, ele cria as situações, você produz.",
+     "resumo": "este prompt pega três blocos que você escolheu e te põe em situações diferentes para usar cada um, até sair sem pensar.",
+     "prompt": "Eu estou estudando inglês e quero praticar três expressões específicas nesta conversa: [BLOCO 1], [BLOCO 2] e [BLOCO 3].\n\nFunciona assim: você cria uma situação curta de conversa em que a resposta natural usa uma dessas expressões, e me faz uma pergunta dentro dessa situação. Eu respondo tentando usar a expressão. Depois você muda a situação e repete, até cada uma das três ter aparecido em três contextos diferentes.\n\nRegras:\nVocê conduz. Você escolhe as situações e não me pergunta qual eu prefiro.\nFale em inglês, de 2 a 4 frases curtas. Se usar uma palavra difícil, diga o equivalente em português na mesma frase.\nMinha resposta pode vir misturada com português. A sua parte não aumenta o português por causa disso.\nSe eu usar a expressão de forma errada, repita minha frase inteira do jeito certo dentro da sua resposta e me devolva uma pergunta usando a mesma expressão. Não explique a regra e não diga que eu errei.\nTermine cada mensagem com exatamente uma pergunta.\nNo fim, escreva só as frases completas que eu usei nesta conversa, do jeito que se fala, no máximo cinco linhas, sem tradução e sem explicação.\n\nComece agora, com a primeira situação e a primeira pergunta.",
+     "substituir": "`[BLOCO 1]` `[BLOCO 2]` `[BLOCO 3]`. Pode colar em inglês ou descrever em português o que você quer saber dizer."
+    },
+    {
+     "num": 2,
+     "titulo": "Você escolhe os blocos por mim",
+     "paraquem": "você não sabe quais expressões deveria aprender e trava na hora de montar a lista.",
+     "estilo": "ele define o alvo e cobra o uso.",
+     "resumo": "você dá só o assunto, ele escolhe cinco blocos que gente de verdade usa naquele contexto e te obriga a usar os cinco antes de encerrar.",
+     "prompt": "Eu quero praticar inglês falado sobre [ASSUNTO].\n\nAntes de começar, escolha cinco expressões inteiras que uma pessoa nativa realmente usa quando fala sobre isso. Não palavras soltas: frases prontas. Escreva as cinco numa lista curta, com o equivalente em português do lado, e não explique nada sobre elas.\n\nDepois disso, comece uma conversa sobre o assunto. Sua missão é me levar a usar as cinco, uma de cada vez, criando situações em que ela é a resposta natural. Não me diga qual expressão você está mirando.\n\nRegras:\nVocê conduz a conversa inteira e escolhe os rumos.\nFale em inglês, de 2 a 4 frases curtas, com o português da palavra difícil na mesma frase.\nQuando eu errar, repita minha frase do jeito certo dentro da sua resposta e siga, sem apontar o erro.\nTermine cada mensagem com exatamente uma pergunta.\nQuando as cinco tiverem aparecido na minha fala, me diga que acabou e liste só as frases inteiras que eu produzi.\n\nComece agora.",
+     "substituir": "`[ASSUNTO]`. Por exemplo trabalho remoto, academia, filhos pequenos, viagem de avião, falar de dinheiro."
+    },
+    {
+     "num": 3,
+     "titulo": "Conversa normal, blocos no fim",
+     "paraquem": "você quer só conversar e sair com algo na mão, sem sentir que fez exercício.",
+     "estilo": "conversa livre com entrega no final.",
+     "resumo": "nada de treino. Vocês conversam e, no fim, ele separa os blocos que apareceram para você levar embora.",
+     "prompt": "Eu quero conversar em inglês com você sobre [ASSUNTO], sem exercício e sem aula.\n\nDurante a conversa, não me ensine nada e não comente meu inglês. Só converse comigo como uma pessoa conversa com outra.\n\nRegras:\nVocê escolhe por onde a conversa vai e nunca me pergunta sobre o que eu quero falar.\nFale em inglês, de 2 a 4 frases curtas. Palavra difícil, você diz em português na mesma frase.\nSe eu falar algo errado, repita a frase certa dentro da sua resposta e continue o assunto, sem comentar.\nTermine cada mensagem com exatamente uma pergunta.\nQuando eu escrever ACABOU, pare a conversa e escreva só os blocos completos que apareceram e que valem a pena eu guardar: a frase inteira, do jeito que se fala, no máximo cinco linhas, sem tradução e sem explicação. Essa lista é para eu copiar para fora daqui.\n\nComece agora, com a primeira pergunta.",
+     "substituir": "`[ASSUNTO]`."
+    },
+    {
+     "num": 4,
+     "titulo": "Como se diz isso",
+     "paraquem": "você sabe exatamente o que quer dizer em português e não tem ideia de como se fala em inglês.",
+     "estilo": "tradutor de intenção, não de palavra.",
+     "resumo": "você cola a ideia em português, ele devolve dois jeitos reais de dizer aquilo e te faz usar na conversa em seguida.",
+     "prompt": "Eu vou te dizer, em português, coisas que eu quero saber falar em inglês. Começo com esta: [O QUE VOCÊ QUER SABER DIZER].\n\nPara cada uma, faça três coisas.\nPrimeiro, me dê duas maneiras de dizer isso em inglês de verdade, como alguém falaria numa conversa, não tradução literal. Uma mais informal e uma mais neutra. Só as duas frases, sem explicação.\nSegundo, me faça uma pergunta em inglês cuja resposta natural usa uma dessas duas frases.\nTerceiro, depois que eu responder, repita minha frase do jeito certo dentro da sua resposta e me faça outra pergunta usando a mesma frase, em outra situação.\n\nNão explique gramática. Não me dê sinônimo nem lista de variações: duas opções e pronto.\nFale em inglês, de 2 a 4 frases curtas. Minha resposta pode vir misturada com português.\nQuando eu colar outra ideia em português, recomece o processo com ela.\n\nComece agora com a frase que eu te dei.",
+     "substituir": "`[O QUE VOCÊ QUER SABER DIZER]`, em português, do jeito que você diria."
+    }
+   ]
+  },
+  {
+   "titulo": "Palavra",
+   "intro": "Aqui o alvo é vocabulário: a palavra que falta na hora, o nome das coisas, o campo inteiro de um assunto.",
+   "prompts": [
+    {
+     "num": 5,
+     "titulo": "Dez palavras novas, uma por vez",
+     "paraquem": "você quer aumentar vocabulário mas decora lista e esquece em dois dias.",
+     "estilo": "vocabulário dentro de conversa, nunca em lista.",
+     "resumo": "ele escolhe dez palavras do assunto e usa uma por mensagem, dentro do papo, até você reconhecer todas sem traduzir.",
+     "prompt": "Eu quero aprender dez palavras novas em inglês sobre [ASSUNTO], mas não quero lista para decorar.\n\nFaça assim: escolha dez palavras úteis sobre esse assunto e guarde a lista para você, sem me mostrar. Depois comece uma conversa sobre o assunto e use uma dessas palavras em cada mensagem sua, de um jeito em que o contexto deixe claro o que ela significa. Se o contexto não bastar, diga o equivalente em português na mesma frase, entre vírgulas.\n\nRegras:\nVocê conduz e escolhe o rumo da conversa.\nDe 2 a 4 frases curtas por mensagem.\nSe eu usar a palavra errada ou torta, repita minha frase do jeito certo dentro da sua resposta e siga.\nTermine cada mensagem com exatamente uma pergunta que me faça usar a palavra da vez.\nQuando as dez tiverem aparecido, me mostre a lista e marque quais eu usei sozinho.\n\nComece agora.",
+     "substituir": "`[ASSUNTO]`."
+    },
+    {
+     "num": 6,
+     "titulo": "Uma palavra difícil por mensagem",
+     "paraquem": "você entende o básico e sente que seu inglês é pobre, sempre as mesmas palavras.",
+     "estilo": "inglês um pouco acima do seu nível, de propósito.",
+     "resumo": "ele conversa normal mas enfia uma palavra mais adulta em cada mensagem, deixando o contexto fazer o trabalho.",
+     "prompt": "Eu quero conversar em inglês com você sobre [ASSUNTO] e quero que você use um vocabulário um pouco acima do meu nível, de propósito.\n\nEm cada mensagem sua, use uma palavra ou expressão que eu provavelmente não conheço, mas construa a frase de forma que eu consiga deduzir o sentido pelo contexto. Não traduza de imediato. Se eu perguntar, você explica em uma linha e volta para a conversa.\n\nRegras:\nVocê conduz. Nunca me pergunte sobre o que eu quero falar.\nDe 2 a 4 frases curtas por mensagem.\nNão comente meu inglês. Se eu errar, repita a frase certa dentro da sua resposta e siga.\nTermine cada mensagem com exatamente uma pergunta.\nSe eu escrever MAIS FÁCIL, baixe o nível do vocabulário e continue a mesma conversa.\n\nComece agora.",
+     "substituir": "`[ASSUNTO]`."
+    },
+    {
+     "num": 7,
+     "titulo": "A palavra que me falta sempre",
+     "paraquem": "tem uma palavra, ou um punhado delas, que te escapa toda vez. Sempre as mesmas.",
+     "estilo": "conversa construída em volta de uma palavra só, até fixar.",
+     "resumo": "você diz qual palavra te escapa e ele monta a conversa inteira em volta dela, em contextos que não se parecem.",
+     "prompt": "Tem uma palavra em inglês que eu esqueço toda vez que preciso dela: [PALAVRA OU IDEIA QUE VOCÊ ESQUECE].\n\nEu quero que você monte uma conversa inteira em volta dela. Crie situações diferentes em que essa palavra é a resposta natural, uma depois da outra, até ela sair de mim sem esforço. Umas seis ou sete vezes, em contextos que não se pareçam entre si.\n\nRegras:\nVocê conduz e cria as situações, sem me perguntar nada sobre a estrutura.\nNão me diga que está repetindo a palavra de propósito. Deixe parecer conversa.\nDe 2 a 4 frases curtas por mensagem, em inglês, com o português da palavra difícil na mesma frase.\nSe eu errar, repita minha frase certa dentro da sua resposta e me devolva uma pergunta usando a mesma palavra.\nTermine cada mensagem com exatamente uma pergunta.\n\nComece agora.",
+     "substituir": "`[PALAVRA OU IDEIA QUE VOCÊ ESQUECE]`. Pode escrever em português se você não souber a palavra em inglês. É justamente o caso."
+    },
+    {
+     "num": 8,
+     "titulo": "Um campo só: tudo sobre uma coisa",
+     "paraquem": "você não consegue falar de nenhum assunto com profundidade e quer dominar um território pequeno de verdade.",
+     "estilo": "imersão estreita, vocabulário concentrado.",
+     "resumo": "uma sessão inteira dentro de um campo só, cozinha, dinheiro, corpo, casa, até você conversar sobre aquilo sem travar.",
+     "prompt": "Eu quero uma conversa em inglês que fique inteira dentro de um assunto só: [CAMPO]. Nada fora dele.\n\nSua missão é me fazer falar sobre esse campo de vários ângulos diferentes, usando o vocabulário específico dele. Comece pelo mais comum e vá entrando em detalhes que exijam palavras mais específicas. Não mude de assunto nem para variar.\n\nRegras:\nVocê conduz e escolhe os ângulos.\nDe 2 a 4 frases curtas por mensagem, em inglês, com o português da palavra difícil na mesma frase.\nSe eu não souber a palavra, eu digo em português e você me dá a palavra em inglês dentro da sua resposta e segue.\nSe eu errar, repita minha frase do jeito certo dentro da sua resposta, sem comentar o erro.\nTermine cada mensagem com exatamente uma pergunta.\nNo fim, escreva as palavras desse campo que apareceram e que eu ainda não usei sozinho.\n\nComece agora.",
+     "substituir": "`[CAMPO]`. Cozinha, dinheiro e banco, corpo e saúde, casa e manutenção, carro, trabalho de escritório, roupa, tempo e clima."
+    }
+   ]
+  },
+  {
+   "titulo": "Gramática",
+   "intro": "Gramática aqui não é tabela de verbo. É você usar a estrutura dentro da conversa e só depois descobrir o nome dela.",
+   "prompts": [
+    {
+     "num": 9,
+     "titulo": "A regra só no fim",
+     "paraquem": "você sabe as regras de cabeça e continua travando na hora de falar.",
+     "estilo": "conversa primeiro, explicação depois, nunca no meio.",
+     "resumo": "vocês conversam normalmente e, no final, ele explica em português as regras que apareceram no que você escreveu.",
+     "prompt": "Eu quero conversar em inglês com você sobre [ASSUNTO]. Durante a conversa, não explique gramática nenhuma, nem uma linha.\n\nEnquanto a gente conversa, você anota em silêncio os pontos de gramática em que eu tropecei. Não me mostra nada e não comenta.\n\nRegras:\nVocê conduz a conversa e escolhe os rumos.\nDe 2 a 4 frases curtas por mensagem.\nSe eu errar, repita a frase certa dentro da sua resposta e siga o assunto.\nTermine cada mensagem com exatamente uma pergunta.\nQuando eu escrever ACABOU, pare a conversa e me explique em português, no máximo três pontos de gramática, aqueles em que eu mais tropecei. Para cada um: a minha frase, a frase certa, e uma linha dizendo por quê. Nada além disso.\n\nComece agora.",
+     "substituir": "`[ASSUNTO]`."
+    },
+    {
+     "num": 10,
+     "titulo": "Uma estrutura por sessão",
+     "paraquem": "você quer finalmente usar um tempo verbal sem ter que pensar antes de abrir a boca.",
+     "estilo": "treino escondido dentro de conversa.",
+     "resumo": "uma estrutura só na sessão inteira, e ele constrói toda pergunta de um jeito que te obriga a usá-la.",
+     "prompt": "Eu quero treinar uma estrutura específica do inglês nesta conversa: [ESTRUTURA].\n\nSua missão é me fazer usar essa estrutura o tempo todo, sem me dizer que está fazendo isso. Toda pergunta sua tem que ser formulada de um jeito em que a resposta natural usa essa estrutura. Converse sobre assuntos variados, mas a estrutura não muda.\n\nRegras:\nVocê conduz e escolhe os assuntos.\nNão explique a regra. Não nomeie a estrutura durante a conversa.\nDe 2 a 4 frases curtas por mensagem, em inglês, com o português da palavra difícil na mesma frase.\nSe eu usar outra estrutura, repita minha frase na estrutura certa dentro da sua resposta e faça a próxima pergunta.\nTermine cada mensagem com exatamente uma pergunta.\nDepois de dez trocas, me diga quantas vezes eu acertei a estrutura sozinho.\n\nComece agora.",
+     "substituir": "`[ESTRUTURA]`. Passado simples, condicional, present perfect, futuro com going to, comparativo, voz passiva. Pode descrever em português: \"falar de coisa que eu já fiz na vida mas sem dizer quando\"."
+    },
+    {
+     "num": 11,
+     "titulo": "Correção com nome da regra",
+     "paraquem": "você quer entender o que errou na hora, não no fim.",
+     "estilo": "correção imediata, uma linha, com o nome da coisa.",
+     "resumo": "cada erro seu volta corrigido, com o nome da regra e uma única linha de explicação em português, e a conversa segue.",
+     "prompt": "Eu quero conversar em inglês com você sobre [ASSUNTO] e quero ser corrigido na hora.\n\nQuando eu escrever algo errado, antes de responder o assunto, faça exatamente isto, em três linhas curtas:\nA minha frase corrigida.\nO nome da regra, em português.\nUma linha só dizendo por quê.\nDepois dessas três linhas, volte para o inglês e continue a conversa normalmente.\n\nRegras:\nCorrija no máximo um erro por mensagem, o mais importante. Ignore os outros.\nNão corrija erro de digitação nem de acento.\nDe 2 a 4 frases curtas na parte em inglês.\nVocê conduz a conversa e escolhe os rumos.\nTermine cada mensagem com exatamente uma pergunta.\n\nComece agora.",
+     "substituir": "`[ASSUNTO]`."
+    },
+    {
+     "num": 12,
+     "titulo": "Me faça errar de propósito",
+     "paraquem": "você acha que já sabe e quer descobrir onde ainda cai.",
+     "estilo": "armadilha, e você só percebe depois.",
+     "resumo": "ele desenha a conversa para te levar aos pontos em que brasileiro tropeça, deixa você cair e mostra no fim.",
+     "prompt": "Eu quero que você monte uma conversa em inglês que me leve de propósito para os pontos em que brasileiro erra. Meu nível é mais ou menos este: [DESCREVA SEU NÍVEL EM PALAVRAS SIMPLES].\n\nConstrua suas perguntas de um jeito que a resposta natural passe por essas armadilhas. Não me avise. Não corrija nada durante a conversa. Deixe eu cair.\n\nRegras:\nVocê conduz e escolhe os assuntos.\nDe 2 a 4 frases curtas por mensagem.\nDurante a conversa, nunca comente meu inglês, nem para elogiar.\nTermine cada mensagem com exatamente uma pergunta.\nDepois de dez trocas, pare e me mostre cada armadilha que eu caí: a minha frase, a frase certa, e em que ponto a armadilha estava. No máximo cinco. Se eu não caí em nenhuma, diga isso com franqueza em vez de inventar erro.\n\nComece agora.",
+     "substituir": "`[DESCREVA SEU NÍVEL EM PALAVRAS SIMPLES]`. Por exemplo: \"entendo filme com legenda em inglês mas travo para falar\", ou \"sei o básico, me perco em qualquer tempo verbal fora do presente\"."
+    }
+   ]
+  },
+  {
+   "titulo": "Correção",
+   "intro": "Quatro temperaturas diferentes de correção. Escolha a sua pelo que você aguenta ouvir hoje, não pelo que parece mais sério.",
+   "prompts": [
+    {
+     "num": 13,
+     "titulo": "Corrige tudo, sem suavizar",
+     "paraquem": "você quer rigor e não se abala com erro apontado.",
+     "estilo": "seco, direto, sem elogio.",
+     "resumo": "todo erro volta corrigido na hora, sem adoçar, sem \"boa tentativa\", sem elogio nenhum.",
+     "prompt": "Eu quero conversar em inglês com você sobre [ASSUNTO] e quero correção total.\n\nEm cada mensagem minha que tiver erro, comece sua resposta com a minha frase reescrita do jeito certo, sem comentário nenhum em volta. Depois continue a conversa em inglês.\n\nRegras:\nNão elogie. Nunca escreva \"good job\", \"boa tentativa\" ou equivalente.\nNão suavize e não diga que o erro foi pequeno.\nCorrija também o que está gramaticalmente certo mas que nativo nenhum falaria daquele jeito.\nDe 2 a 4 frases curtas na parte de conversa.\nVocê conduz e escolhe os assuntos.\nTermine cada mensagem com exatamente uma pergunta.\n\nComece agora.",
+     "substituir": "`[ASSUNTO]`."
+    },
+    {
+     "num": 14,
+     "titulo": "Os três erros do fim",
+     "paraquem": "correção no meio da conversa te travava e você desistia.",
+     "estilo": "conversa limpa, relatório no fim.",
+     "resumo": "ninguém te interrompe. No final ele mostra só os três erros que você repetiu mais, que são os que valem consertar.",
+     "prompt": "Eu quero conversar em inglês com você sobre [ASSUNTO] e não quero ser corrigido durante a conversa, em nenhuma circunstância.\n\nEnquanto conversamos, anote em silêncio os meus erros e, principalmente, quais deles eu repito.\n\nRegras:\nVocê conduz e escolhe os rumos.\nDe 2 a 4 frases curtas por mensagem.\nDurante a conversa, nada de correção, nada de comentário sobre meu inglês, nem elogio.\nTermine cada mensagem com exatamente uma pergunta.\nQuando eu escrever ACABOU, mostre só os três erros que eu repeti mais vezes. Para cada um: quantas vezes apareceu, um exemplo meu, a forma certa, e uma frase em inglês para eu praticar aquilo. Nada mais que isso.\n\nComece agora.",
+     "substituir": "`[ASSUNTO]`."
+    },
+    {
+     "num": 15,
+     "titulo": "Só reafirma o certo",
+     "paraquem": "você congela quando apontam seu erro e precisa falar sem medo por um tempo.",
+     "estilo": "invisível. A correção existe mas nunca é nomeada.",
+     "resumo": "ele nunca diz que você errou. Ele devolve sua frase certa dentro da resposta dele, como se fosse a conversa seguindo, e te obriga a repetir.",
+     "prompt": "Eu quero conversar em inglês com você sobre [ASSUNTO]. Eu travo quando alguém aponta meu erro, então nesta conversa você nunca aponta nada.\n\nQuando eu falar algo errado, faça duas coisas dentro da sua própria resposta: use a minha ideia com a frase certa, naturalmente, como se estivesse concordando comigo, e em seguida me faça uma pergunta que só se responde usando a mesma frase. Nunca diga que eu errei, nunca escreva a palavra correção, nunca compare as duas versões.\n\nRegras:\nVocê conduz e escolhe os assuntos.\nDe 2 a 4 frases curtas por mensagem.\nNada de lista, nada de explicação, nada de gramática em nenhum momento.\nTermine cada mensagem com exatamente uma pergunta.\nSe eu escrever ACABOU, encerre só agradecendo a conversa, sem relatório nenhum.\n\nComece agora.",
+     "substituir": "`[ASSUNTO]`."
+    },
+    {
+     "num": 16,
+     "titulo": "Só o que soaria estranho",
+     "paraquem": "seu inglês está correto e ainda assim soa a estrangeiro.",
+     "estilo": "ajuste fino de naturalidade, sem teoria.",
+     "resumo": "ele ignora gramática e corrige só o que faria um nativo levantar a cabeça, em uma linha, sem explicar regra.",
+     "prompt": "Eu quero conversar em inglês com você sobre [ASSUNTO]. Meu inglês já é razoável, então eu não quero correção de gramática.\n\nCorrija uma coisa só: o que estaria tecnicamente certo mas que nativo nenhum falaria assim. Quando isso acontecer, escreva em uma linha, antes da sua resposta: a minha frase, e do lado o jeito que se fala de verdade. Sem explicar regra, sem teoria, sem nome de estrutura.\n\nRegras:\nNo máximo uma correção dessas por mensagem, e só quando realmente soar estranho. Se não tiver nada, não corrija nada.\nNão corrija gramática, digitação nem escolha de palavra que apenas poderia ser melhor.\nDe 2 a 4 frases curtas na conversa, no inglês falado de todo dia.\nVocê conduz e escolhe os assuntos.\nTermine cada mensagem com exatamente uma pergunta.\n\nComece agora.",
+     "substituir": "`[ASSUNTO]`."
+    }
+   ]
+  },
+  {
+   "titulo": "Conversação pura",
+   "intro": "Nenhum destes quatro ensina nada. É o que o vídeo defende: ele não é o professor, é a pessoa do outro lado.",
+   "prompts": [
+    {
+     "num": 17,
+     "titulo": "Proibido ensinar",
+     "paraquem": "você nunca conversou em inglês com ninguém e precisa só perder o medo.",
+     "estilo": "amizade. Nada de escola.",
+     "resumo": "está proibido corrigir, explicar, comentar seu inglês ou fazer qualquer coisa que lembre aula. É só conversa.",
+     "prompt": "Eu quero conversar em inglês com você como se você fosse um amigo meu, e não um professor. Meu nome é [SEU NOME].\n\nEstá proibido, nesta conversa: corrigir qualquer coisa que eu escreva, explicar gramática, comentar meu nível, elogiar meu inglês, dizer que eu estou indo bem, oferecer exercício, fazer resumo de aula ou citar qualquer coisa sobre aprendizado. Se eu escrever algo errado, você simplesmente entende e responde o conteúdo.\n\nRegras:\nVocê escolhe o tema, não me pergunta qual. Comece agora com a primeira pergunta.\nFale em inglês simples, de 2 a 4 frases curtas. Palavra difícil, você diz em português na mesma frase.\nMinha resposta pode vir misturada com português. A sua parte não aumenta o português por causa disso.\nConte coisas suas também. Não seja só quem pergunta.\nTermine cada mensagem com exatamente uma pergunta para mim. Se eu responder com poucas palavras, comente o que eu disse, conte algo seu sobre o assunto e faça a próxima pergunta. Nunca devolva a conversa pedindo que eu escolha o que falar.\n\nComece agora.",
+     "substituir": "`[SEU NOME]`."
+    },
+    {
+     "num": 18,
+     "titulo": "Você puxa todo assunto",
+     "paraquem": "você abre o ChatGPT, ele pergunta \"sobre o que você quer falar?\" e você fecha o aplicativo.",
+     "estilo": "ele carrega a conversa do começo ao fim.",
+     "resumo": "você nunca escolhe tema. Ele traz um, esgota, troca, e não devolve essa escolha para você em nenhum momento.",
+     "prompt": "Eu quero treinar inglês conversando, e o meu problema é que eu nunca sei sobre o que falar. Então a escolha do assunto é sua, do começo ao fim.\n\nVocê traz um assunto, conversa comigo sobre ele, e quando ele se esgotar você troca por outro, sozinho, sem me avisar e sem me perguntar. Isso vale para a conversa inteira.\n\nRegras:\nÉ proibido me perguntar o que eu quero falar, em qualquer forma, inclusive \"tem algo que você preferia?\".\nComece agora, com o primeiro assunto e a primeira pergunta.\nFale em inglês, de 2 a 4 frases curtas, com o português da palavra difícil na mesma frase.\nSe eu responder com poucas palavras, você comenta o que eu disse, conta algo seu sobre o assunto e faz a próxima pergunta.\nSe eu errar, repita a frase certa dentro da sua resposta e siga, sem comentar.\nTermine cada mensagem com exatamente uma pergunta.\n\nComece agora.",
+     "substituir": "nenhum. Este é o prompt para colar e enviar como está."
+    },
+    {
+     "num": 19,
+     "titulo": "Conversa invertida: eu pergunto",
+     "paraquem": "você só sabe responder e nunca aprendeu a fazer pergunta em inglês, que é o que mantém qualquer conversa viva.",
+     "estilo": "papéis trocados.",
+     "resumo": "quem pergunta é você. Ele responde curto, de propósito, para você ser obrigado a puxar o assunto adiante.",
+     "prompt": "Nesta conversa os papéis se invertem: quem pergunta sou eu, e você só responde. O assunto é [ASSUNTO].\n\nResponda curto, no máximo duas frases, e nunca me faça pergunta de volta. Não ofereça assunto, não puxe o papo, não me ajude a continuar. Se eu ficar sem saber o que perguntar, espere.\n\nRegras:\nResponda em inglês, no máximo duas frases por mensagem.\nSe minha pergunta estiver mal formada mas der para entender, responda e, antes da resposta, escreva a pergunta do jeito certo em uma linha, sem comentar.\nSe minha pergunta não der para entender de jeito nenhum, diga só isso e me dê duas versões possíveis dela em inglês.\nNunca termine sua mensagem com pergunta.\nSe eu escrever MINHA VEZ ACABOU, aí sim você pode começar a perguntar.\n\nComece dizendo apenas que está pronto, em inglês, e espere minha primeira pergunta.",
+     "substituir": "`[ASSUNTO]`."
+    },
+    {
+     "num": 20,
+     "titulo": "Ele discorda de mim",
+     "paraquem": "você já conversa e as conversas são mornas, todas iguais, porque ele concorda com tudo.",
+     "estilo": "debate. Atrito de propósito.",
+     "resumo": "ele assume a posição contrária à sua e defende, forçando você a argumentar em inglês em vez de só narrar sua vida.",
+     "prompt": "Eu quero debater em inglês com você sobre [TEMA]. A minha posição é esta: [SUA POSIÇÃO].\n\nVocê assume a posição contrária e defende com firmeza, até o fim da conversa, mesmo que eu dê bons argumentos. Não concorde comigo para ser gentil. Rebata cada ponto meu com um argumento concreto, e aponte quando o meu argumento tiver um furo.\n\nRegras:\nDiscorde do conteúdo, nunca de mim. Sem ofensa e sem ironia.\nFale em inglês, de 3 a 5 frases por mensagem, porque aqui é argumento.\nSe eu errar no inglês, ignore. Nesta conversa o alvo é a ideia.\nTermine cada mensagem com exatamente uma pergunta que me obrigue a defender meu ponto.\nSe eu escrever ACABOU, pare o debate e diga em uma linha qual foi o meu argumento mais forte e qual foi o mais fraco.\n\nComece agora, atacando a minha posição.",
+     "substituir": "`[TEMA]` e `[SUA POSIÇÃO]`. Pode escrever a posição em português."
+    }
+   ]
+  },
+  {
+   "titulo": "Gíria e inglês real",
+   "intro": "O inglês do livro e o inglês da rua são dois idiomas. Estes quatro tratam do segundo.",
+   "prompts": [
+    {
+     "num": 21,
+     "titulo": "Gíria de internet",
+     "paraquem": "você entende notícia em inglês e não entende um comentário no Discord.",
+     "estilo": "mensagem curta, abreviada, como gente de verdade digita.",
+     "resumo": "ele conversa como se fosse um chat de jogo ou de grupo, com gíria e abreviação, e explica só quando você pedir.",
+     "prompt": "Eu quero treinar o inglês escrito que as pessoas usam de verdade na internet, em jogo e em grupo de mensagem. O assunto é [ASSUNTO].\n\nEscreva como alguém da sua idade escreveria num chat: mensagens curtas, gíria, abreviação, letra minúscula, sem pontuação formal. Nada de parágrafo bem construído e nada de linguagem de livro.\n\nRegras:\nNo máximo duas linhas curtas por mensagem.\nUse pelo menos uma gíria ou abreviação real em cada mensagem, e não explique a menos que eu pergunte.\nSe eu escrever EXPLICA, saia disso e me diga em português o que a última mensagem significa, com a gíria traduzida. Depois, se eu escrever CONTINUA, volte ao chat de onde parou.\nNão corrija meu inglês nunca. Aqui ninguém corrige ninguém.\nTermine cada mensagem com exatamente uma pergunta.\n\nComece agora.",
+     "substituir": "`[ASSUNTO]`. Jogo, série, futebol, música, meme, trabalho."
+    },
+    {
+     "num": 22,
+     "titulo": "O inglês falado que o livro não ensina",
+     "paraquem": "você entende quando lê e não entende quando ouve, e nunca descobriu por quê.",
+     "estilo": "fala real escrita do jeito que sai da boca.",
+     "resumo": "ele escreve as contrações e os cortes que acontecem na fala de verdade, gonna, wanna, lemme, e mostra ao lado o que o livro escreveria.",
+     "prompt": "Eu entendo inglês escrito e não entendo inglês falado. Eu quero treinar nesta conversa a fala reduzida, aquela que o livro não escreve. O assunto é [ASSUNTO].\n\nEscreva suas falas do jeito que sai da boca de verdade, com as contrações e os cortes que acontecem na fala rápida. Em cada mensagem sua, depois da fala, acrescente uma linha só mostrando como aquela mesma frase apareceria escrita num livro. Só isso, sem explicar nada.\n\nRegras:\nUse em cada mensagem pelo menos uma redução de fala real.\nDe 2 a 4 frases curtas na fala, mais a linha da versão de livro.\nNão explique fonética e não escreva símbolo de pronúncia.\nVocê conduz e escolhe os rumos.\nTermine cada mensagem com exatamente uma pergunta.\n\nComece agora.",
+     "substituir": "`[ASSUNTO]`."
+    },
+    {
+     "num": 23,
+     "titulo": "Um personagem que nunca sai do papel",
+     "paraquem": "você quer imersão e se irrita quando o ChatGPT quebra o personagem para dar aula.",
+     "estilo": "ficção sustentada do começo ao fim.",
+     "resumo": "ele vira uma pessoa específica, de um país específico, com vida e opinião, e não sai desse papel por nada.",
+     "prompt": "Nesta conversa você é uma pessoa de verdade, não uma assistente. Você é [DESCREVA A PESSOA: PAÍS, IDADE, O QUE FAZ DA VIDA]. Eu sou [SEU NOME] e estou conversando com você pela primeira vez.\n\nVocê tem rotina, opinião, irritação e histórias suas, e traz isso para a conversa. Nunca diz que é uma inteligência artificial, nunca comenta meu inglês, nunca oferece ajuda com idioma, nunca age como professor.\n\nRegras:\nFale em inglês, de 2 a 4 frases curtas, com as palavras que uma pessoa desse lugar usaria.\nSe eu errar, entenda e responda o conteúdo, sem corrigir.\nConte coisas suas em vez de só perguntar.\nTermine cada mensagem com exatamente uma pergunta para mim.\nSó saia do personagem se eu escrever EXPLICA. Aí você explica o que eu não entendi, em português, e volta ao personagem quando eu escrever CONTINUA.\n\nComece agora, se apresentando em uma frase e fazendo a primeira pergunta.",
+     "substituir": "`[DESCREVA A PESSOA: PAÍS, IDADE, O QUE FAZ DA VIDA]` e `[SEU NOME]`. Por exemplo: um irlandês de 40 anos que trabalha numa oficina e odeia futebol americano."
+    },
+    {
+     "num": 24,
+     "titulo": "Phrasal verbs sem lista",
+     "paraquem": "você já tentou decorar lista de phrasal verb e não aguentou duas páginas.",
+     "estilo": "eles aparecem na conversa e você nem percebe.",
+     "resumo": "ele usa phrasal verbs naturalmente no papo, com o sentido claro pelo contexto, e no fim mostra quais passaram.",
+     "prompt": "Eu quero aprender phrasal verbs em inglês, mas sem lista nenhuma e sem exercício. O assunto da conversa é [ASSUNTO].\n\nUse phrasal verbs naturalmente nas suas falas, uns dois por mensagem, construindo a frase de forma que o sentido fique claro pelo contexto. Não explique nenhum durante a conversa, nem traduza.\n\nRegras:\nVocê conduz e escolhe os rumos.\nDe 2 a 4 frases curtas por mensagem.\nSe eu usar um phrasal verb errado, repita minha frase certa dentro da sua resposta e siga, sem apontar.\nTermine cada mensagem com exatamente uma pergunta cuja resposta natural usa um phrasal verb.\nQuando eu escrever ACABOU, liste os phrasal verbs que apareceram, no máximo oito, com o sentido em português, em uma linha cada. Marque com uma estrela os que eu usei sozinho.\n\nComece agora.",
+     "substituir": "`[ASSUNTO]`."
+    }
+   ]
+  },
+  {
+   "titulo": "Cena",
+   "intro": "Aqui você não conversa sobre inglês: você resolve uma situação em inglês. Ele faz o papel do outro lado e não ajuda.",
+   "prompts": [
+    {
+     "num": 25,
+     "titulo": "Aeroporto, hotel, restaurante",
+     "paraquem": "você tem viagem marcada e o medo não é de gramática, é de travar no balcão.",
+     "estilo": "encenação crua. Ele é o funcionário e não explica nada.",
+     "resumo": "ele vira o atendente da situação que você escolher, fala como funcionário fala de verdade, rápido e sem paciência didática, até a situação se resolver.",
+     "prompt": "Nós vamos encenar uma situação em inglês. A cena é esta: [A CENA]. Você é o funcionário e eu sou o cliente.\n\nAja como funcionário age de verdade: direto, apressado, sem didática. Você não é professor e não sabe que eu estou estudando. Faça perguntas que funcionário faz, inclusive as inesperadas, e crie um imprevisto no meio da cena, algo que me obrigue a resolver falando.\n\nRegras:\nFale só em inglês, no inglês de trabalho daquele lugar, de 1 a 3 frases por vez.\nNunca explique nada, nunca corrija, nunca elogie, nunca saia do papel.\nSe eu travar, continue no papel e repita a pergunta de outro jeito, mais curta.\nSe eu escrever EXPLICA, saia da cena e explique em português; volte à cena quando eu escrever CONTINUA, do ponto exato onde paramos.\nQuando a situação se resolver, encerre a cena e me diga em três linhas, em português, as frases que eu deveria ter usado e não usei.\n\nComece agora, com a primeira fala do funcionário.",
+     "substituir": "`[A CENA]`. Check-in no aeroporto com bagagem acima do peso, recepção do hotel com problema no quarto, pedido no restaurante com restrição alimentar, farmácia, imigração, táxi que foi pelo caminho errado."
+    },
+    {
+     "num": 26,
+     "titulo": "Reunião de trabalho",
+     "paraquem": "seu trabalho tem reunião em inglês e você passa a reunião inteira rezando para não ser chamado.",
+     "estilo": "ambiente corporativo, com pergunta de acompanhamento.",
+     "resumo": "ele é o colega ou o gestor estrangeiro na sua daily, e faz a pergunta que você teme, a de acompanhamento.",
+     "prompt": "Nós vamos simular uma reunião de trabalho em inglês. Eu trabalho como [SUA FUNÇÃO] e a reunião é esta: [TIPO DE REUNIÃO]. Você é [QUEM VOCÊ É NA REUNIÃO].\n\nConduza a reunião como ela aconteceria de verdade. Faça a pergunta, ouça minha resposta e faça a pergunta de acompanhamento, aquela que cobra detalhe de quem respondeu por cima.\n\nRegras:\nFale em inglês de ambiente de trabalho, de 2 a 4 frases por vez.\nNunca corrija meu inglês durante a reunião e nunca saia do papel.\nSe minha resposta for vaga, não me ajude: aponte a vagueza como um colega apontaria e pergunte de novo, mais específico.\nTermine cada mensagem com exatamente uma pergunta.\nQuando eu escrever ACABOU, encerre a reunião e me dê, em português, as três frases de reunião que eu mais precisaria ter na ponta da língua e não usei.\n\nComece agora, abrindo a reunião.",
+     "substituir": "`[SUA FUNÇÃO]`, `[TIPO DE REUNIÃO]` (daily, status de projeto, alinhamento com cliente, apresentação de resultado) e `[QUEM VOCÊ É NA REUNIÃO]` (meu gestor, um colega de outro time, o cliente)."
+    },
+    {
+     "num": 27,
+     "titulo": "Entrevista de emprego",
+     "paraquem": "você vai ser entrevistado em inglês, ou quer uma vaga que exige, e precisa ouvir a pergunta difícil antes que ela valha.",
+     "estilo": "entrevista real, com devolutiva no fim.",
+     "resumo": "ele é o entrevistador da vaga que você indicar, pergunta de verdade, e no fim diz se a sua resposta convenceria ou não.",
+     "prompt": "Você é o entrevistador de uma vaga e eu sou o candidato. A vaga é esta: [A VAGA]. Minha experiência é esta: [SUA EXPERIÊNCIA EM DUAS LINHAS].\n\nConduza a entrevista em inglês, uma pergunta por vez, começando pelas comuns e endurecendo conforme avança. Inclua as desconfortáveis: por que saiu do último emprego, uma vez em que você errou, o que você não sabe fazer.\n\nRegras:\nFale em inglês, de 2 a 4 frases por vez, no tom de quem está avaliando.\nNão corrija meu inglês durante a entrevista e não saia do papel.\nSe minha resposta for genérica, cobre exemplo concreto antes de passar para a próxima pergunta.\nTermine cada mensagem com exatamente uma pergunta.\nDepois de seis perguntas, encerre e me dê, em português, três linhas: a resposta minha que convenceria, a que não convenceria e por quê, e a frase em inglês que eu deveria ter usado e não usei.\n\nComece agora, com a primeira pergunta.",
+     "substituir": "`[A VAGA]` e `[SUA EXPERIÊNCIA EM DUAS LINHAS]`. Pode escrever a experiência em português."
+    },
+    {
+     "num": 28,
+     "titulo": "Conversa de mesa",
+     "paraquem": "você se defende no inglês de trabalho e emudece no jantar, quando o assunto não tem pauta.",
+     "estilo": "social, sem assunto definido, como é na vida real.",
+     "resumo": "a cena é uma mesa com gente conversando sobre nada em particular, que é justamente a conversa mais difícil que existe.",
+     "prompt": "Nós vamos encenar uma conversa de mesa em inglês. A situação é esta: [A SITUAÇÃO SOCIAL]. Você é uma das pessoas na mesa e eu acabei de chegar.\n\nConverse como se conversa numa mesa: assunto pequeno, comentário sobre a comida, pergunta sobre a minha vida, história sua no meio, e troca de assunto sem aviso. Não existe pauta e não existe objetivo.\n\nRegras:\nFale em inglês informal, de 2 a 4 frases curtas.\nNunca corrija meu inglês e nunca saia do papel.\nConte histórias suas de verdade, com detalhe, e não só faça perguntas.\nMude de assunto sozinho de vez em quando, do jeito que acontece numa mesa.\nTermine cada mensagem com exatamente uma pergunta para mim.\n\nComece agora, me cumprimentando como alguém que acabou de me conhecer.",
+     "substituir": "`[A SITUAÇÃO SOCIAL]`. Jantar na casa de um amigo, churrasco de família, happy hour da empresa, mesa de bar com desconhecidos, café depois de um evento."
+    }
+   ]
+  },
+  {
+   "titulo": "Condição",
+   "intro": "Os dois últimos não mudam o conteúdo. Mudam a condição em que você estuda, que é o motivo real pelo qual a maioria para.",
+   "prompts": [
+    {
+     "num": 29,
+     "titulo": "Tudo por escrito, sem falar alto",
+     "paraquem": "você estuda de noite com gente dormindo em casa, ou no ônibus, ou no trabalho, e não pode falar nem ouvir áudio.",
+     "estilo": "silencioso, por texto, frase curta.",
+     "resumo": "a sessão inteira é escrita e curta, sem áudio, sem voz, sem nada que precise de fone ou de boca aberta.",
+     "prompt": "Eu vou estudar inglês com você por escrito, e eu não posso falar nem ouvir áudio. Tem gente dormindo perto de mim. Então esta conversa é só texto, do começo ao fim.\n\nNunca sugira que eu fale em voz alta, que eu leia alto, que eu grave áudio, que eu use o modo de voz ou que eu repita algo com a boca. Não comente pronúncia em nenhum momento, porque aqui ela não existe.\n\nRegras:\nEscreva em inglês, no máximo duas frases curtas por mensagem, para eu conseguir ler rápido no celular.\nNada de lista, nada de negrito, nada de título, nada de bloco longo.\nPalavra difícil, você diz o português na mesma frase.\nSe eu errar, repita minha frase certa dentro da sua resposta e siga, sem comentar.\nTermine cada mensagem com exatamente uma pergunta curta.\nSe eu parar de responder e voltar depois, continue de onde paramos sem perguntar nada.\n\nComece agora, com a primeira pergunta. O assunto é [ASSUNTO].",
+     "substituir": "`[ASSUNTO]`."
+    },
+    {
+     "num": 30,
+     "titulo": "Três minutos, e pode abandonar no meio",
+     "paraquem": "você só tem o intervalo entre duas coisas, e qualquer sessão que exija dez minutos você não começa.",
+     "estilo": "curtíssimo, sem compromisso, abandonável.",
+     "resumo": "uma sessão de três minutos, duas frases por mensagem, desenhada para você poder sair no meio sem ter estragado nada.",
+     "prompt": "Eu tenho três minutos, nada mais. Eu quero uma conversa em inglês que caiba nesse tempo e que eu possa abandonar no meio sem problema.\n\nTrate isso como completo em si: se eu parar de responder na terceira mensagem, a sessão valeu.\n\nRegras:\nNo máximo duas frases curtas por mensagem, sempre.\nVocê escolhe o assunto e começa agora, sem me perguntar nada.\nNada de lista, nada de explicação, nada de gramática, nada de correção.\nPalavra difícil, você diz o português na mesma frase.\nTermine cada mensagem com exatamente uma pergunta curta, que se responda em uma frase.\nSe eu escrever MAIS UM, continue por três minutos a mais com o mesmo assunto.\n\nComece agora.",
+     "substituir": "nenhum. Cole e envie como está."
+    }
+   ]
+  }
+ ],
+ "configuracao": "Nunca comente nem avalie minha pronúncia ou meu sotaque.\nQuando eu perguntar se algo está certo, não concorde por educação: diga qual é a forma que se usa e siga.\nEm conversa, responda curto, de 2 a 4 frases, sem listas, sem títulos e sem negrito.\nNão encerre com resumo de aula nem com elogio ao meu desempenho.\nFale do assunto, não do meu inglês."
+}

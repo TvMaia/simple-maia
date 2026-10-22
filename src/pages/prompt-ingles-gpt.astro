@@ -1,0 +1,614 @@
+---
+import dados from '../data/prompts.json';
+import { ENDPOINT } from '../config';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const total = dados.focos.reduce((s, f) => s + f.prompts.length, 0);
+
+function marca(s: string) {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/(\[[A-ZÀ-Ú0-9 ,:\/çÇ]+\])/g, '<mark>$1</mark>');
+}
+function forte(s: string) {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/`(.+?)`/g, '<code>$1</code>');
+}
+---
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{total} prompts para praticar inglês conversando com o ChatGPT | Simple Maia</title>
+<meta name="description" content={`${total} prompts prontos para copiar e colar no ChatGPT e praticar inglês conversando. Guia gratuito do canal Simple Maia.`} />
+<link rel="icon" href={`${base}/logo.png`} />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" />
+<style>
+  :root {
+    --papel: #F1E7D2;
+    --papel-fundo: #E7DAC0;
+    --tinta: #22344B;
+    --tinta-fraca: #5B6B7E;
+    --acao: #C85A17;
+    --carimbo: #B83A24;
+    --campo: #3B7A5E;
+    --teal: #0F3D46;
+    --ambar: #E8934A;
+    --serif: 'Fraunces', Georgia, serif;
+    --corpo: 'Inter', system-ui, sans-serif;
+    --mono: 'Space Mono', 'Courier New', monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background-color: var(--papel);
+    background-image:
+      repeating-linear-gradient(to bottom, transparent 0 31px, rgba(34,52,75,.055) 31px 32px),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E");
+    color: var(--tinta);
+    font-family: var(--corpo);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .faixa {
+    height: 7px;
+    background: linear-gradient(90deg, var(--teal) 0 38%, var(--acao) 38% 72%, var(--carimbo) 72% 100%);
+  }
+
+  .limite { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+
+  /* cabecalho */
+  header.topo { padding: 34px 0 10px; }
+  .marca { display: flex; align-items: center; gap: 14px; }
+  .marca img {
+    width: 54px; height: 54px; border-radius: 50%;
+    border: 2px solid var(--tinta);
+    box-shadow: 3px 3px 0 var(--tinta);
+  }
+  .marca .nome {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 1.35rem;
+    letter-spacing: -.02em;
+    line-height: 1.05;
+  }
+  .marca .sub {
+    font-family: var(--mono);
+    font-size: .68rem;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    color: var(--tinta-fraca);
+  }
+
+  /* selo */
+  .selo {
+    display: inline-block;
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: .64rem;
+    text-transform: uppercase;
+    letter-spacing: .16em;
+    color: var(--carimbo);
+    border: 1.5px solid var(--carimbo);
+    padding: 5px 9px;
+    transform: rotate(-1.4deg);
+  }
+
+  /* hero */
+  .hero { padding-top: 30px; padding-bottom: 14px; }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: clamp(2.1rem, 7.4vw, 3.5rem);
+    line-height: 1.02;
+    letter-spacing: -.03em;
+    margin: 20px 0 0;
+  }
+  h1 em { font-style: normal; color: var(--acao); }
+  .linha-fina {
+    font-size: 1.1rem;
+    color: var(--tinta-fraca);
+    max-width: 54ch;
+    margin: 18px 0 0;
+  }
+  .hero p.corrido { max-width: 58ch; margin: 18px 0 0; }
+
+  /* formulario */
+  .cartao-form {
+    margin: 34px 0 10px;
+    background: #FBF5E8;
+    border: 2px solid var(--tinta);
+    box-shadow: 7px 7px 0 var(--tinta);
+    padding: 26px 24px 24px;
+  }
+  .cartao-form h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin: 0 0 4px;
+    letter-spacing: -.01em;
+  }
+  .cartao-form .ajuda { font-size: .92rem; color: var(--tinta-fraca); margin: 0 0 20px; }
+  label {
+    display: block;
+    font-family: var(--mono);
+    font-size: .66rem;
+    text-transform: uppercase;
+    letter-spacing: .13em;
+    margin: 14px 0 5px;
+    color: var(--tinta);
+  }
+  input {
+    width: 100%;
+    font-family: var(--corpo);
+    font-size: 1rem;
+    color: var(--tinta);
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(34,52,75,.3);
+    padding: 8px 2px;
+    transition: border-color .15s;
+  }
+  input:focus { outline: none; border-bottom-color: var(--acao); }
+  input::placeholder { color: rgba(91,107,126,.6); }
+
+  button.principal {
+    margin-top: 26px;
+    width: 100%;
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #FBF5E8;
+    background: var(--acao);
+    border: 2px solid var(--tinta);
+    box-shadow: 4px 4px 0 var(--tinta);
+    padding: 14px 18px;
+    cursor: pointer;
+    transition: transform .1s, box-shadow .1s;
+  }
+  button.principal:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--tinta); }
+  button.principal:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--tinta); }
+  .reducao {
+    font-family: var(--mono);
+    font-size: .68rem;
+    text-align: center;
+    color: var(--tinta-fraca);
+    margin: 12px 0 0;
+    letter-spacing: .04em;
+  }
+  .erro { color: var(--carimbo); font-size: .88rem; margin: 10px 0 0; }
+
+  /* conteudo liberado */
+  #guia[hidden] { display: none; }
+  .divisor {
+    display: flex; align-items: center; gap: 16px;
+    margin: 56px 0 30px;
+  }
+  .divisor::before, .divisor::after {
+    content: ''; flex: 1; height: 2px; background: rgba(34,52,75,.22);
+  }
+  .divisor span {
+    font-family: var(--mono);
+    font-size: .66rem;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    color: var(--tinta-fraca);
+  }
+
+  .config {
+    border-left: 5px solid var(--campo);
+    background: rgba(59,122,94,.07);
+    padding: 18px 20px;
+    margin: 0 0 20px;
+  }
+  .config h2 {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+  .config p { margin: 0 0 14px; font-size: .96rem; }
+
+  /* indice */
+  nav.indice ol {
+    list-style: none;
+    margin: 0; padding: 0;
+    counter-reset: f;
+  }
+  nav.indice li { border-bottom: 1px dashed rgba(34,52,75,.28); }
+  nav.indice a {
+    display: flex; align-items: baseline; gap: 12px;
+    padding: 11px 2px;
+    color: var(--tinta);
+    text-decoration: none;
+    font-family: var(--serif);
+    font-size: 1.05rem;
+  }
+  nav.indice a:hover { color: var(--acao); }
+  nav.indice .n {
+    font-family: var(--mono);
+    font-size: .74rem;
+    color: var(--acao);
+    font-weight: 700;
+  }
+  nav.indice .q {
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: .68rem;
+    color: var(--tinta-fraca);
+    white-space: nowrap;
+  }
+
+  /* focos */
+  section.foco { margin: 62px 0 0; }
+  section.foco > h2 {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: clamp(1.6rem, 5vw, 2.1rem);
+    letter-spacing: -.02em;
+    line-height: 1.08;
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--tinta);
+  }
+  .foco-intro { color: var(--tinta-fraca); margin: 14px 0 0; max-width: 60ch; }
+
+  /* card de prompt */
+  article.card { margin: 34px 0 0; }
+  article.card > header {
+    display: flex; align-items: baseline; gap: 12px;
+  }
+  article.card .num {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--ambar);
+    line-height: 1;
+  }
+  article.card h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.28rem;
+    letter-spacing: -.015em;
+    margin: 0;
+    line-height: 1.2;
+  }
+  dl.meta { margin: 14px 0 0; }
+  dl.meta dt {
+    font-family: var(--mono);
+    font-size: .62rem;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    color: var(--tinta-fraca);
+    margin-top: 10px;
+  }
+  dl.meta dd { margin: 2px 0 0; font-size: .97rem; }
+
+  .caixa-prompt {
+    position: relative;
+    margin: 18px 0 0;
+    background: var(--teal);
+    border: 2px solid var(--tinta);
+    box-shadow: 5px 5px 0 rgba(34,52,75,.5);
+  }
+  .caixa-prompt pre {
+    margin: 0;
+    padding: 46px 18px 18px;
+    font-family: var(--mono);
+    font-size: .86rem;
+    line-height: 1.62;
+    color: #EFE3CC;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+  }
+  .caixa-prompt mark {
+    background: rgba(232,147,74,.22);
+    color: var(--ambar);
+    font-weight: 700;
+    padding: 0 2px;
+  }
+  button.copiar {
+    position: absolute;
+    top: 9px; right: 9px;
+    font-family: var(--mono);
+    font-size: .64rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--teal);
+    background: var(--papel);
+    border: 1.5px solid var(--papel);
+    padding: 6px 10px;
+    cursor: pointer;
+    transition: background .15s, color .15s;
+  }
+  button.copiar:hover { background: var(--ambar); border-color: var(--ambar); }
+  button.copiar[data-feito] { background: var(--campo); border-color: var(--campo); color: #EFE3CC; }
+
+  p.subst {
+    margin: 14px 0 0;
+    font-size: .9rem;
+    color: var(--tinta-fraca);
+    padding-left: 14px;
+    border-left: 3px solid var(--ambar);
+  }
+  p.subst span {
+    font-family: var(--mono);
+    font-size: .62rem;
+    text-transform: uppercase;
+    letter-spacing: .13em;
+    color: var(--acao);
+    display: block;
+  }
+
+  code {
+    font-family: var(--mono);
+    font-size: .88em;
+    background: rgba(34,52,75,.08);
+    padding: 1px 4px;
+  }
+
+  pre.bloco-config {
+    margin: 0;
+    font-family: var(--mono);
+    font-size: .84rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    background: rgba(34,52,75,.06);
+    border-left: 3px solid var(--tinta);
+    padding: 14px 16px;
+    overflow-wrap: anywhere;
+  }
+
+  /* rodape */
+  footer {
+    margin: 80px 0 0;
+    border-top: 3px solid var(--tinta);
+    padding: 26px 0 60px;
+    font-size: .94rem;
+  }
+  footer a { color: var(--acao); font-weight: 500; }
+  footer .assina {
+    font-family: var(--mono);
+    font-size: .66rem;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    color: var(--tinta-fraca);
+    margin-top: 18px;
+  }
+
+  a.voltar {
+    display: inline-block;
+    margin-top: 20px;
+    font-family: var(--mono);
+    font-size: .66rem;
+    text-transform: uppercase;
+    letter-spacing: .13em;
+    color: var(--tinta-fraca);
+    text-decoration: none;
+  }
+  a.voltar:hover { color: var(--acao); }
+
+  @media (max-width: 480px) {
+    body { font-size: 16px; }
+    .cartao-form { padding: 20px 18px; box-shadow: 5px 5px 0 var(--tinta); }
+    .caixa-prompt pre { font-size: .8rem; padding: 44px 14px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="faixa"></div>
+
+<header class="topo">
+  <div class="limite">
+    <div class="marca">
+      <img src={`${base}/logo.png`} alt="Logo do canal Simple Maia" width="54" height="54" />
+      <div>
+        <div class="nome">Simple Maia</div>
+        <div class="sub">Manual de campo</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="limite hero">
+    <span class="selo">Guia gratuito</span>
+    <h1>{total} prompts para <em>conversar</em> em inglês com o ChatGPT</h1>
+    <p class="linha-fina">
+      Cada um vem com para quem serve, o que ele faz e o texto pronto para copiar e colar. Sem conta,
+      sem plugin, sem pagar nada.
+    </p>
+    <p class="corrido">
+      O ChatGPT é ruim como professor e muito bom como alguém do outro lado para conversar. A diferença
+      está no que você pede a ele. Esses {total} prompts são os pedidos que fazem ele puxar assunto,
+      corrigir na hora certa e aceitar que você misture português com inglês enquanto ainda não dá conta
+      de um só.
+    </p>
+
+    <form id="form" class="cartao-form" novalidate>
+      <h2>Para onde eu te mando o guia</h2>
+      <p class="ajuda">Preenche e os {total} prompts abrem aqui embaixo na hora.</p>
+
+      <label for="nome">Seu nome</label>
+      <input id="nome" name="nome" type="text" autocomplete="given-name" placeholder="Como eu te chamo" required />
+
+      <label for="email">E-mail</label>
+      <input id="email" name="email" type="email" autocomplete="email" placeholder="voce@exemplo.com" required />
+
+      <label for="whatsapp">WhatsApp com DDD</label>
+      <input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="11 90000 0000" required />
+
+      <button class="principal" type="submit">Abrir os {total} prompts</button>
+      <p class="reducao">Nada de spam. Você sai da lista quando quiser.</p>
+      <p class="erro" id="erro" hidden></p>
+    </form>
+  </div>
+
+  <div id="guia" hidden>
+    <div class="limite">
+      <div class="divisor"><span>Começa aqui</span></div>
+
+      <div class="config">
+        <h2>A configuração que você faz uma vez na vida</h2>
+        <p>
+          Cole esse texto nas instruções personalizadas do ChatGPT, em Configurações, Personalização.
+          Feito isso, ele já sabe como falar com você e todos os prompts abaixo funcionam melhor.
+        </p>
+        <pre class="bloco-config">{dados.configuracao}</pre>
+      </div>
+
+      <nav class="indice">
+        <ol>
+          {dados.focos.map((f, i) => (
+            <li>
+              <a href={`#foco-${i + 1}`}>
+                <span class="n">{String(i + 1).padStart(2, '0')}</span>
+                <span>{f.titulo}</span>
+                <span class="q">{f.prompts.length} prompts</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+
+      {dados.focos.map((f, i) => (
+        <section class="foco" id={`foco-${i + 1}`}>
+          <h2>{f.titulo}</h2>
+          {f.intro && <p class="foco-intro" set:html={forte(f.intro)} />}
+
+          {f.prompts.map((p) => (
+            <article class="card" id={`p${p.num}`}>
+              <header>
+                <span class="num">{String(p.num).padStart(2, '0')}</span>
+                <h3>{p.titulo}</h3>
+              </header>
+              <dl class="meta">
+                <dt>Para quem</dt>
+                <dd set:html={forte(p.paraquem)} />
+                <dt>Estilo</dt>
+                <dd set:html={forte(p.estilo)} />
+                <dt>Em resumo</dt>
+                <dd set:html={forte(p.resumo)} />
+              </dl>
+              <div class="caixa-prompt">
+                <button class="copiar" type="button" data-alvo={`t${p.num}`}>Copiar</button>
+                <pre id={`t${p.num}`} set:html={marca(p.prompt)} />
+              </div>
+              {p.substituir && (
+                <p class="subst">
+                  <span>Troque antes de enviar</span>
+                  <span set:html={forte(p.substituir)} />
+                </p>
+              )}
+            </article>
+          ))}
+          <a class="voltar" href="#form">Voltar ao índice</a>
+        </section>
+      ))}
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="limite">
+    <p>
+      Esse guia é o complemento do vídeo
+      <a href="https://www.youtube.com/watch?v=0M-GLXq7Rxc">Como estudar inglês pelo ChatGPT</a>,
+      no canal <a href="https://www.youtube.com/@simplemaia">Simple Maia</a>.
+      O canal não é só de inglês: é sobre simplificar maneiras de melhorar a sua capacidade cognitiva.
+    </p>
+    <p class="assina">Simple Maia · Manual de campo nº 01</p>
+  </div>
+</footer>
+
+<script define:vars={{ ENDPOINT }}>
+  const form = document.getElementById('form');
+  const guia = document.getElementById('guia');
+  const erro = document.getElementById('erro');
+  const CHAVE = 'simple-maia-ingles-liberado';
+
+  function liberar(rolar) {
+    guia.hidden = false;
+    if (rolar) {
+      guia.querySelector('.divisor').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  try {
+    if (localStorage.getItem(CHAVE) === '1') liberar(false);
+  } catch (e) {}
+
+  form.addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    erro.hidden = true;
+
+    const dados = {
+      nome: form.nome.value.trim(),
+      email: form.email.value.trim(),
+      whatsapp: form.whatsapp.value.trim(),
+      origem: 'prompt-ingles-gpt'
+    };
+
+    if (!dados.nome || !dados.email.includes('@') || dados.whatsapp.replace(/\D/g, '').length < 10) {
+      erro.textContent = 'Confere o nome, o e-mail e o WhatsApp com DDD.';
+      erro.hidden = false;
+      return;
+    }
+
+    const botao = form.querySelector('button.principal');
+    const rotulo = botao.textContent;
+    botao.disabled = true;
+    botao.textContent = 'Abrindo...';
+
+    if (ENDPOINT) {
+      try {
+        await fetch(ENDPOINT, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(dados)
+        });
+      } catch (e) {}
+    }
+
+    try { localStorage.setItem(CHAVE, '1'); } catch (e) {}
+    botao.disabled = false;
+    botao.textContent = rotulo;
+    liberar(true);
+  });
+
+  document.addEventListener('click', (ev) => {
+    const b = ev.target.closest('button.copiar');
+    if (!b) return;
+    const alvo = document.getElementById(b.dataset.alvo);
+    if (!alvo) return;
+    navigator.clipboard.writeText(alvo.innerText).then(() => {
+      b.textContent = 'Copiado';
+      b.dataset.feito = '1';
+      setTimeout(() => {
+        b.textContent = 'Copiar';
+        delete b.dataset.feito;
+      }, 1800);
+    });
+  });
+</script>
+</body>
+</html>
